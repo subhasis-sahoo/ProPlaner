@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav class="nav-bar">
+        <div class="menu-bar">
+            <div class="menu-header">
+                <h1>Menu</h1>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            <div class="menu-content">
+                <div class="task-box">
+                    <h2>TASKS</h2>
+                    <div class="task-item" id="add" onclick="onNavItemClick('add', 'add-todos-container')">
+                        <i class="fa-solid fa-square-plus"></i>
+                        <span>Add</span>
+                    </div>
+                    <div class="task-item" id="edit" onclick="onNavItemClick('edit', 'edit-todos-container')">
+                        <i class="fa-solid fa-file-pen"></i>
+                        <span>Edit</span>
+                    </div>
+                    <div class="task-item" id="all" onclick="onNavItemClick('all', 'all-todos-container')">
+                        <i class="fa-solid fa-list"></i>
+                        <span class="tasks">All</span>
+                        <span class="count" id="all-task-count">12</span>
+                    </div>
+                    <div class="task-item" id="pending" onclick="onNavItemClick('pending', 'pending-todos-container')">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                        <span class="tasks">Pending</span>
+                        <span class="count" id="pending-task-count">7</span>
+                    </div>
+                    <div class="task-item" id="completed" onclick="onNavItemClick('completed', 'competed-todos-container')">
+                        <i class="fa-solid fa-clipboard-check"></i>
+                        <span class="tasks">Completed</span>
+                        <span class="count" id="all-task-count">5</span>
+                    </div>
+                </div>
+
+                <hr>
+
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="todos-box">
+            <div class="todos-header">
+                <h3 class="header">All To-Dos</h3>
+            </div>
+
+            <hr>
+
+            <div class="add-todos-container hidden-section">
+                <form class="add-form">
+                    <div class="add-input-fields" id="title">
+                        <label for="title">
+                            <b>Title: </b>
+                        </label>
+                        <input type="text" name="title" id="add-title" placeholder="Enter your to-do title" autocomplete="off" required>
+                    </div>
+                    <div class="add-input-fields" id="description">
+                        <label for="description">
+                            <b>Description: </b>
+                        </label>
+                        <textarea name="description" id="add-description" placeholder="Enter your to-do description" autocomplete="off" required></textarea>
+                    </div>
+                    <div class="add-date-time">
+                        <div class="date" id="date">
+                            <label for="date">
+                                <b>Date: </b>
+                            </label>
+                            <input type="date" name="date" id="add-date" autocomplete="off" required>
+                        </div>
+                        <div class="time" id="time">
+                            <label for="time">
+                                <b>Time: </b>
+                            </label>
+                            <input type="time" name="time" id="add-time" autocomplete="" required>
+                        </div>
+                    </div>
+                    <div class="add-btns">
+                        <button type="reset" class="btn" id="add-reset-btn">Reset</button>
+                        <button type="submit" class="btn" id="add-btn">Add</button>
+                    </div>
+                </form>
+                <div class="preview-todo">
+                    <h2>Preview of Your To-Do:</h2>
+                    <div class="todo-card">
+                        <h3 class="card-title" id="add-card-title">Finish Web Development Course</h3>
+                        <div class="card-description" id="add-card-description">
+                            <p>- Complete the remaining modules of the web development course. <br><br>- Focus on JavaScript and React. <br><br>- Take notes on key concepts. <br><br>- Complete all exercises and quizzes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="edit-todos-container hidden-section">
+                <div class="todo-drag-drop-section hidden-section">
+                    <div class="pending-todos-box">
+                        <h4>Pending</h4>
+                        <div class="pending-box-contents">
+
+                        </div>
+                    </div>
+                    <div class="completed-todos-box">
+                        <h4>Completed</h4>
+                        <div class="completed-box-contents">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="todo-form-section hidden-section">
+                    <form class="edit-form">
+                        <div class="add-input-fields" id="title">
+                            <label for="title">
+                                <b>Title: </b>
+                            </label>
+                            <input type="text" name="title" id="edit-title" placeholder="Enter your to-do title" autocomplete="off" required>
+                        </div>
+                        <div class="add-input-fields" id="description">
+                            <label for="description">
+                                <b>Description: </b>
+                            </label>
+                            <textarea name="description" id="edit-description" placeholder="Enter your to-do description" autocomplete="off" required></textarea>
+                        </div>
+                        <div class="add-date-time">
+                            <div class="date" id="date">
+                                <label for="date">
+                                    <b>Date: </b>
+                                </label>
+                                <input type="date" name="date" id="edit-date" autocomplete="off" required>
+                            </div>
+                            <div class="time" id="time">
+                                <label for="time">
+                                    <b>Time: </b>
+                                </label>
+                                <input type="time" name="time" id="edit-time" autocomplete="" required>
+                            </div>
+                        </div>
+                        <div class="edit-btns">
+                            <button type="reset" class="btn" id="edit-reset-btn">Reset</button>
+                            <button type="submit" class="btn" id="add-btn">Add</button>
+                        </div>
+                    </form>
+                    <div class="todo-info">
+                        <div class="todo-status">
+                            <h2>To-Do Status: </h2>
+                            <span id="status">Pending</span>
+                        </div>
+                        <div class="todo-card" id="edit-todo-card">
+                            <h3 class="card-title" id="edit-card-title">Finish Web Development Course</h3>
+                            <div class="card-description" id="edit-card-description">
+                                <p>- Complete the remaining modules of the web development course. <br><br>- Focus on JavaScript and React. <br><br>- Take notes on key concepts. <br><br>- Complete all exercises and quizzes.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="all-todos-container hidden-section">
+                <div class="todo-add-task-card" onclick="onNavItemClick('add', 'add-todos-container')">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+            </div>
+            
+            <div class="pending-todos-container hidden-section">
+                
+            </div>
+            
+            <div class="competed-todos-container hidden-section">
+                
+            </div>
+            
+        </div>
+    </main>
+    
+    <template class="card-template">
+        <div class="todo-card">
+            <h3 class="card-title">Todo-Title</h3>
+            <div class="card-description">
+                <p>Todo-Description</p>
+            </div>
+        </div>
+    </template>
+    
+    <script src="script.js"></script>
+    
+</body>
+</html>
+
+<!-- <div class="background-color">
+    <label for="Background Color: ">
+        <b>background-color: </b>
+    </label>
+    <button class="color-btns" style="background-color: #ff7ecd;"></button>
+    <button class="color-btns" style="background-color: #cdfc93;"></button>
+    <button class="color-btns" style="background-color: #71d7ff;"></button>
+    <button class="color-btns" style="background-color: #8bff97;"></button>
+    <button class="color-btns" style="background-color: #8bd3ff;"></button>
+    <button class="color-btns" style="background-color: #ff8b8b;"></button>
+    <button class="color-btns" style="background-color: #ffcf8b;"></button>
+    <button class="color-btns" style="background-color: #a6ff8b;"></button>
+    <button class="color-btns" style="background-color: #fff68b;"></button>
+</div> -->

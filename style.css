@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    min-width: 100vh;
+    min-height: 100vh;
+    padding: .8rem;
+}
+
+:root {
+    --primary-color: #444444ff;
+    --secondry-color: #212529ff;
+}
+
+nav {
+    position: fixed;
+    top: .8rem;
+    left: .8rem;
+    width: 18.5rem;
+    height: 44rem;
+    background-color: #f4f4f4;
+    border-radius: .5rem;
+    z-index: 99;
+}
+
+.menu-bar {
+    padding: .6rem 1rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--primary-color);
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-header h1 {
+    font-size: 1.2rem;
+}
+
+.menu-header i {
+    font-size: 1.2rem;
+}
+
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    padding-block: .5rem;
+}
+
+.task-box {
+    display: flex;
+    flex-direction: column;
+    /* gap: .5rem; */
+}
+.task-box h2 {
+    font-size: .7rem;
+}
+
+.task-item {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: .8rem 0 .8rem 2rem;
+    font-size: .9rem;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+
+.task-item:hover {
+    background-color: #eaebf0;
+    font-weight: 600;
+}
+
+.active {
+    background-color: #eaebf0;
+    font-weight: 600;
+}
+
+.task-item i {
+    position: absolute;
+    font-size: 1rem;
+    left: .5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.task-item .count {
+    font-size: .8rem;
+    font-weight: 600;
+    padding: 0 .7rem;
+}
+
+
+main {
+    position: absolute;
+    top: .8rem;
+    left: 19rem;
+    width: 74rem;
+    margin-left: 1.5rem;
+}
+
+.todos-box {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+/* add-section */
+.add-todos-container {
+    width: 100%;
+    display: flex;
+    gap: 8rem;
+    padding: 1rem;
+}
+
+.add-todos-container form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+.add-input-fields {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    /* gap: .5rem; */
+}
+
+.add-input-fields input {
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 2px solid #ababab;
+    outline: none;
+    cursor: pointer;
+}
+
+.add-input-fields textarea {
+    height: 15rem;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 2px solid #ababab;
+    outline: none;
+    cursor: pointer;
+}
+
+.add-date-time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.add-date-time .date, .time {
+    width: 49%;
+    display: flex;
+    flex-direction: column;
+}
+
+.add-date-time input {
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 2px solid #ababab;
+    outline: none;
+    cursor: pointer;
+}
+
+/* .background-color {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.background-color label b {
+    margin-right: 1rem;
+}
+
+.color-btns {
+    padding: 1rem;
+    margin-left: 1rem;
+    border: none;
+    outline: none;
+    border-radius: .25rem;
+    cursor: pointer;
+} */
+
+
+.add-btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-block: 1rem;
+}
+
+.btn {
+    padding: .6rem 3rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: .4rem;
+    font-weight: 600;
+    background-color: #ffd43b;
+}
+
+.btn:hover {
+    background-color: #ffcd16;
+}
+
+.preview-todo, .todo-info {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+/* edit-section */
+.edit-todos-container {
+    width: 100%;
+    padding: 1rem;
+}
+
+.todo-drag-drop-section {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.pending-todos-box {
+    width: 49%;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: #ff7e8aad;
+    color: #d73b4a;
+    padding: 1rem;
+    border-radius: .5rem;
+    /* text-align: center; */
+    font-size: 1.25rem;
+}
+
+.pending-box-contents {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: .8rem;
+}
+
+
+.completed-todos-box {
+    width: 49%;
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background-color: #7eff7ead;
+    color: #25b00e;
+    padding: 1rem;
+    border-radius: .5rem;
+    /* text-align: center; */
+    font-size: 1.25rem;
+}
+
+.completed-box-contents {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: start;
+    gap: .8rem;
+}
+
+.todo-form-section {
+    width: 100%;
+    display: flex;
+    gap: 8rem;
+}
+
+.edit-todos-container form {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.edit-btns {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    margin-block: 1rem;
+}
+
+.todo-status {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.todo-status span {
+    font-size: 1rem;
+    padding: .3rem .5rem;
+    border-radius: .5rem;
+    /* background-color: #ff7e8aad;
+    color: #d73b4a; */
+    font-weight: 600;
+}
+
+/* all-section */
+.all-todos-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    align-items: start;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.todo-add-task-card {
+    width: 23rem;
+    height: 23rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    background-color: #f4f4f4;
+    /* border: 2px solid black; */
+    border-radius: .5rem;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.todo-add-task-card i {
+    font-size: 2rem;
+}
+
+.todo-add-task-card:hover {
+    background-color: #eaebf0;
+    transform: translateY(-2px);
+}
+
+/* pending-section */
+.pending-todos-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    align-items: start;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+
+.todo-card {
+    width: 23rem;
+    height: 23rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: #ff8b8b;
+    /* border: 2px solid black; */
+    border-radius: .5rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.todo-card:hover {
+    transform: translateY(-2px);
+}
+
+.card-title {
+    color: var(--secondry-color);
+    font-family: "Kalam", cursive;
+    line-height: 2rem;
+    font-size: 1.6rem;
+}
+
+.card-description {
+    font-family: "Kalam", cursive;
+    font-weight: 500;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    line-height: 1.25rem;
+    /* text-align: justify; */
+    font-size: 1rem;
+    color: var(--secondry-color);
+}
+
+.card-description p {
+    font-family: "Kalam", cursive;
+}
+
+
+/* extra card design for edit-section  */
+.todo-card-extra {
+    width: 16.2rem;
+    height: 13rem;
+    gap: .8rem;
+    padding: .8rem;
+    /* box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.364); */
+}
+
+.card-title-extra {
+    line-height: 1.5rem;
+    font-size: 1.2rem;
+}
+
+.card-description-extra {
+    gap: .3rem;
+    line-height: 1rem;
+    font-size: .9rem;
+    /* overflow: auto; */
+}
+
+/* hidden-section css */
+.hidden-section {
+    display: none;
+}
